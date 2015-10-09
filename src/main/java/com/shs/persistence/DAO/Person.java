@@ -1,13 +1,9 @@
 package com.shs.persistence.DAO;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-/**
- * Created by sergei on 10/9/15.
- */
+
+@Entity
 public class Person {
 
     @Id
