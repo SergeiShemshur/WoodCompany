@@ -2,6 +2,9 @@ package com.shs.persistence;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
 
 public class HibernateUtil {
 
