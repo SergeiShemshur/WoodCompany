@@ -1,5 +1,4 @@
 import com.shs.persistence.HibernateUtil;
-import com.shs.persistence.model.EmployInfo;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.testng.annotations.BeforeTest;
@@ -8,7 +7,7 @@ import org.hibernate.Query;
 import java.util.Date;
 
 
-public class EmployInfoTest {
+public class EmployTest {
 
 
 
@@ -21,7 +20,7 @@ public class EmployInfoTest {
         session.beginTransaction();
         EmployInfo info = new EmployInfo();
         info.setHireDate(new Date());
-        info.setIsWork(false);
+        info.setIsWork(true);
         session.save(info);
         session.getTransaction().commit();
 
@@ -34,11 +33,11 @@ public class EmployInfoTest {
     public void checkInsertion(){
 
         Session session = factory.openSession();
-
              Query query = session.createQuery("from EmployInfo where id = :id");
-             query.setLong("id",1);
-            EmployInfo info = (EmployInfo) query.uniqueResult();
-        System.out.println(info.getHireDate().getDate());
+             query.setLong("id", 1);
+             EmployInfo info = (EmployInfo) query.uniqueResult();
+              assertEquals(info.isWork(),true);
+
             }
 
 

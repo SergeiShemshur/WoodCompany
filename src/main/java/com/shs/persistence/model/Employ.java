@@ -6,20 +6,33 @@ import javax.persistence.*;
 
 
 @Entity
-public class Person {
+public class Employ {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    private long id;
 
     @Column
-    String name;
+    private String name;
 
     @Column
-    String lastName;
+    private String lastName;
 
 
+    /*
 
+
+    @OneToOne
+    private EmployInfo employInfo;
+
+    public EmployInfo getEmployInfo() {
+        return employInfo;
+    }
+
+    public void setEmployInfo(EmployInfo employInfo) {
+        this.employInfo = employInfo;
+    }
+*/
 
 
 
