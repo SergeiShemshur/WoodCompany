@@ -18,12 +18,13 @@
   
   <dependencies>
 	  <!-- begin test tool -->
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
+	  <dependency>
+		  <groupId>junit</groupId>
+		  <artifactId>junit</artifactId>
+		  <version>4.12</version>
+		  <scope>test</scope>
+	  </dependency>
+
 	  <dependency>
 		  <groupId>org.testng</groupId>
 		  <artifactId>testng</artifactId>
@@ -93,6 +94,11 @@
 		<artifactId>cglib</artifactId>
 		<version>2.2</version>
 	</dependency>
+	  <dependency>
+		  <groupId>antlr</groupId>
+		  <artifactId>antlr</artifactId>
+		  <version>2.7.7</version>
+	  </dependency>
 
 	  <!-- Hibernate library dependecy end -->
 	  <!-- Spring start -->
@@ -115,6 +121,9 @@
 		  <artifactId>jstl</artifactId>
 		  <version>1.2</version>
 	  </dependency>
+
+
+
 	  <!-- Spring end -->
 	  <!-- Logging begin -->
 
@@ -128,12 +137,17 @@
 			  <artifactId>log4j-core</artifactId>
 			  <version>2.4</version>
 		  </dependency>
+	  <dependency>
+		  <groupId>log4j</groupId>
+		  <artifactId>log4j</artifactId>
+		  <version>1.2.14</version>
+	  </dependency>
 
-<!--	  <dependency>
-		  <groupId>org.slf4j</groupId>
-		  <artifactId>slf4j-api</artifactId>
-		  <version>1.7.12</version>
-	  </dependency>-->
+	  <!--	  <dependency>
+              <groupId>org.slf4j</groupId>
+              <artifactId>slf4j-api</artifactId>
+              <version>1.7.12</version>
+          </dependency>-->
 	 <!--  Logging end-->
 
   </dependencies>

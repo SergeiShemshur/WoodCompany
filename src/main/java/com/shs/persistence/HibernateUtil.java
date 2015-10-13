@@ -5,15 +5,15 @@ import org.hibernate.cfg.AnnotationConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
-
+@Component
 public class HibernateUtil {
 
     private static final SessionFactory sessionFactory = buildSessionFactory();
 
-
-    private static SessionFactory buildSessionFactory() {
+        @Bean
+      private static SessionFactory buildSessionFactory() {
         try {
-            // Create the SessionFactory from hibernate.cfg.xml
+
             return new AnnotationConfiguration().configure().buildSessionFactory();
             
         }
