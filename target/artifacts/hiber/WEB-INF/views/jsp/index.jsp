@@ -73,13 +73,13 @@
 	</form>
   <hr>
   <footer>
-	<p>&copy; Mkyong.com 2015</p>
+	<p>&copy; 5</p>
   </footer>
 </div>
  
 <spring:url value="/resources/core/js/hello.js" var="coreJs" />
 <spring:url value="/resources/core/js/bootstrap.min.js" var="bootstrapJs" />
-<spring:url value="/resources/core/js/jquery-2.1.4.min .js" var="jquery"/>
+<spring:url value="/resources/core/js/jquery-2.1.4.min.js" var="jquery"/>
  
 <script src="${coreJs}"></script>
 <script src="${bootstrapJs}"></script>

@@ -3,6 +3,7 @@ package com.shs.persistence.model;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.util.Date;
 
 
 @Entity
@@ -18,23 +19,38 @@ public class Employ {
     @Column
     private String lastName;
 
+    @Column
+    private boolean isWork;
 
-    /*
+    @Column
+    private Date hireDate;
 
+    @Column
+    private Date  firedDate;
 
-    @OneToOne
-    private EmployInfo employInfo;
-
-    public EmployInfo getEmployInfo() {
-        return employInfo;
+    public boolean isWork() {
+        return isWork;
     }
 
-    public void setEmployInfo(EmployInfo employInfo) {
-        this.employInfo = employInfo;
+    public void setIsWork(boolean isWork) {
+        this.isWork = isWork;
     }
-*/
 
+    public Date getHireDate() {
+        return hireDate;
+    }
 
+    public void setHireDate(Date hireDate) {
+        this.hireDate = hireDate;
+    }
+
+    public Date getFiredDate() {
+        return firedDate;
+    }
+
+    public void setFiredDate(Date firedDate) {
+        this.firedDate = firedDate;
+    }
 
     public long getId() {
         return id;

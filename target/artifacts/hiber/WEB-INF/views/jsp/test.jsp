@@ -15,10 +15,10 @@
 </head>
  <body>
 
-<sf:form commandName="person">
+<sf:form  modelAttribute="employ" >
 <sf:input path="id"/>
  <sf:input path="name"/>
- <sf:input cssClass="after" path="lastName"/>
+ <sf:input path="lastName" cssClass="after" />
  <sf:button>submit</sf:button>
 </sf:form>
 
@@ -36,7 +36,7 @@
  
 <spring:url value="/resources/core/js/hello.js" var="coreJs"  />
 <spring:url value="/resources/core/js/bootstrap.min.js" var="bootstrapJs" />
-<spring:url value="/resources/core/js/jquery-2.1.4.min .js" var="jquery"/>
+<spring:url value="/resources/core/js/jquery-2.1.4.min.js" var="jquery"/>
  
 <script src="${coreJs}"></script>
 <script src="${bootstrapJs}"></script>

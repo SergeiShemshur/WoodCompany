@@ -1,7 +1,14 @@
 package com.shs.Services;
 
-/**
- * Created by sergei on 10/13/15.
- */
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@ComponentScan(basePackages = "com.shs")
 public class ServiceConfig {
+
+
 }

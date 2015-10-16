@@ -1,13 +1,14 @@
 package com.shs.Services;
 
-/**
- * Created by sergei on 10/13/15.
- */
+import com.shs.persistence.model.Employ;
+
+
 public interface EmployService {
 
-    void addEmploy();
-    void removeEmploy();
-    void updateEmploy();
-    void getEmploy(long id);
+    void addEmploy(Employ employ);
+    public void removeEmployById(long id);
+    void updateEmploy(long id);
+    Employ getEmploy(long id);
+
 
 }

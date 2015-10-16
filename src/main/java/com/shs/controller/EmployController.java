@@ -13,6 +13,10 @@ public class EmployController {
     EmployServiceImpl employService;
 
 
+    @RequestMapping("employ")
+    public String getPersonPage(){
+        return "employ";
+    }
 
 
 

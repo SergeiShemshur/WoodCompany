@@ -1,19 +1,13 @@
 package com.shs.controller;
 
-import com.shs.persistence.model.Person;
-import org.apache.logging.log4j.LogManager;
-import org.apache.log4j.Logger;
-import org.hibernate.Session;
+import com.shs.Services.EmployServiceImpl;
+import com.shs.persistence.model.Employ;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.util.Collection;
 
 
 /**
@@ -27,26 +21,34 @@ public class SimpleController {
 
 /*  private static final Logger log = Logger.getLogger(SimpleController.class);*/
 
-        @RequestMapping(value = "/",method = RequestMethod.GET)
-    public String printWelcom(){
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String printWelcom() {
+        EmployServiceImpl employService = new EmployServiceImpl();
+        int i = 1;
+        return "index";
+    }
 
-    return "index";
+    @RequestMapping(value = "base", method = RequestMethod.GET)
+    public String getBase() {
+        return "base";
     }
 
 
-    @RequestMapping(value = "/test",method = RequestMethod.GET)
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
     public String test(Model model) {
-        Person person = new Person();
-        person.setLastName("ogi");
-        person.setName("coco");
-        person.setId(55);
-        model.addAttribute(person);
+        Employ employ = new Employ();
+
+        employ.setLastName("ogi");
+        employ.setName("coco");
+        employ.setId(55);
+
+        model.addAttribute(employ);
         return "test";
     }
 
-  @RequestMapping(value = "/test",method = RequestMethod.POST)
-    public String testInput(Person person){
-      System.out.println(person.getName());
+    @RequestMapping(value = "/test", method = RequestMethod.POST)
+    public String testInput(Employ employ) {
+        System.out.println(employ.getName());
         return "test";
     }
 
