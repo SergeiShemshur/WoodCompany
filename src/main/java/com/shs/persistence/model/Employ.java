@@ -4,13 +4,17 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
+@Table(name = "employ")
 public class Employ {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true)
     private long id;
 
     @Column
@@ -25,8 +29,21 @@ public class Employ {
     @Column
     private Date hireDate;
 
+    public Set<Salary> getSalaries() {
+        return salaries;
+    }
+
+    public void setSalaries(Set<Salary> salaries) {
+        this.salaries = salaries;
+    }
+
     @Column
     private Date  firedDate;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "employ")
+    private Set<Salary> salaries = new HashSet<Salary>(
+            0);
+
 
     public boolean isWork() {
         return isWork;

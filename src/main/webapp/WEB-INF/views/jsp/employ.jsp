@@ -11,19 +11,21 @@
     <spring:url value="/resources/core/css/hello.css" var="coreCss" />
     <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
     <spring:url value="/resources/core/js/angular.min.js" var="angular"/>
+    <spring:url value="/resources/core/js/angular-route.min.js" var="angularRoute"/>
     <spring:url value="/resources/core/js/employApp.js" var="app"/>
-    <spring:url value="/resources/core/js/EmployCtrl.js" var="ctrl"/>
+    <spring:url value="/resources/core/js/employCtrl.js" var="ctrl"/>
+
 
     <link href="${bootstrapCss}" rel="stylesheet"/>
     <link href="${coreCss}" rel="stylesheet"/>
     <script src="${angular}"></script>
     <script src="${app}"></script>
     <script src="${ctrl}"></script>
+    <script src="${angularRoute}"></script>
 
 
 </head>
 <body>
-
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -77,18 +79,16 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+
+
 <div class="container">
     <div class="row">
-        <div  class="col-lg-2 col-md-3" >
+        <div  class="col-lg-2 col-md-3 " >
             <h1>All </h1>
+
         </div>
         <div class="col-lg-10 col-md-9" ng-controller="employInfo" style="border: thin">
-            <ul>
-                <li ng-repeat="phone in phones | filter:query">
-                    <span>{{phone.name}}</span>
-                    <p>{{phone.snippet}}</p>
-                </li>
-            </ul>
+
         </div>
     </div>
 </div>
