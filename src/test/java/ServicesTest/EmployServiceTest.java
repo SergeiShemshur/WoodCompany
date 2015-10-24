@@ -1,4 +1,3 @@
-/*
 package ServicesTest;
 
 import com.shs.dao.EmployRepositoryImpl;
@@ -12,28 +11,11 @@ import java.util.Date;
 public class EmployServiceTest {
 
 
-    EmployRepositoryImpl employService;
 
 
-    @Test
-    public void testService(){
+  //  @Test
 
-        Employ employ = new Employ();
-        employ.setName("dron");
-        employ.setLastName("bazyka");
-        employ.setFiredDate(new Date());
-        employ.setHireDate(new Date());
-        employ.setIsWork(true);
-
-        */
-/*employService.addEmploy(employ);
-        employService.removeEmployById(3);
-        System.out.println(employService.findEmloyById(3));*//*
-
-        employService.updateEmploy(1,employ);
-    }
 
 
 
 }
-*/
