@@ -21,7 +21,7 @@ public class SimpleController {
 
 /*  private static final Logger log = Logger.getLogger(SimpleController.class);*/
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/a", method = RequestMethod.GET)
     public String printWelcom() {
         EmployRepositoryImpl employService = new EmployRepositoryImpl();
         int i = 1;
@@ -41,6 +41,7 @@ public class SimpleController {
         employ.setLastName("ogi");
         employ.setName("coco");
         employ.setId(55);
+        employ.setIsWork(true);
 
         model.addAttribute(employ);
         return "test";

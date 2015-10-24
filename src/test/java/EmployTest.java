@@ -1,32 +1,35 @@
 import com.shs.persistence.HibernateUtil;
 import com.shs.persistence.model.Employ;
 import com.shs.persistence.model.Salary;
+import com.shs.SpringConfig;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.testng.annotations.BeforeTest;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 import org.testng.annotations.Test;
-import org.hibernate.Query;
+
 import java.util.Date;
-import static org.junit.Assert.*;
 
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = SpringConfig.class)
 public class EmployTest {
-
-
 
     SessionFactory factory;
 
+    @Transactional
     @Test
     public void init (){
         factory = HibernateUtil.getSessionFactory();
         Session session = factory.openSession();
         session.beginTransaction();
-
         Salary salary =new Salary();
         salary.setDayEarn(new Date());
         salary.setEarn(444);
         Employ employ = new Employ();
-        employ.setName("Ivan");
+        employ.setName("Test555");
         employ.setLastName("dorda");
         employ.setFiredDate(new Date());
         employ.setHireDate(new Date());
@@ -37,19 +40,28 @@ public class EmployTest {
         session.save(employ);
         session.save(salary);
         session.getTransaction().commit();
+        session.flush();
+        session.clear();
+        session.close();
     }
 
+/*
+    @Autowired
+    EmployJsonService employJsonService;
 
         @Test
     public void checkInsertion(){
-            factory = HibernateUtil.getSessionFactory();
+      factory = HibernateUtil.getSessionFactory();
             Session session = factory.openSession();
-             Query query = session.createQuery("from Employ where id = :id");
-             query.setLong("id", 1);
-             Employ employ = (Employ) query.uniqueResult();
-            System.out.println(employ.getSalaries());
+            // Query query = session.createQuery("from Employ ");
+          employJsonService = new EmployJsonService();
+
+            String a =employJsonService.getAllEmployJson();
+            System.out.println(a);
+
             }
 
+*/
 
 
 }

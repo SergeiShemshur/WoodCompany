@@ -83,13 +83,26 @@
 
 <div class="container">
     <div class="row">
-        <div  class="col-lg-2 col-md-3 " >
-            <h1>All </h1>
-
+        <div  class="col-lg-2 col-md-3 " ng-controller="employList" >
+        <ul class="employs">
+            <li ng-repeat="employ in employs">
+                <p>{{employ.name}}</p>
+            </li>
+        </ul>
         </div>
+
+
+
+
+
+<%--
+
+
+
+
         <div class="col-lg-10 col-md-9" ng-controller="employInfo" style="border: thin">
 
-        </div>
+        </div>--%>
     </div>
 </div>
 

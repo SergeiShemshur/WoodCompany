@@ -1,6 +1,6 @@
 package com.shs.persistence.model;
 
-import org.springframework.stereotype.Component;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -24,7 +24,7 @@ public class Employ {
     private String lastName;
 
     @Column
-    private boolean isWork;
+    private boolean working;
 
     @Column
     private Date hireDate;
@@ -41,16 +41,16 @@ public class Employ {
     private Date  firedDate;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "employ")
-    private Set<Salary> salaries = new HashSet<Salary>(
-            0);
+    @JsonIgnore
+    private Set<Salary> salaries = new HashSet<Salary>();
 
 
-    public boolean isWork() {
-        return isWork;
+    public boolean isWorking() {
+        return working;
     }
 
     public void setIsWork(boolean isWork) {
-        this.isWork = isWork;
+        this.working = isWork;
     }
 
     public Date getHireDate() {
