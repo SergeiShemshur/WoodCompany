@@ -83,13 +83,20 @@
 
 <div class="container">
     <div class="row">
-        <div  class="col-lg-2 col-md-3 " ng-controller="employList" >
+        <div  class="col-lg-2 col-md-2 " ng-controller="employList" >
         <ul class="employs">
             <li ng-repeat="employ in employs">
-                <p>{{employ.name}}</p>
+             <a href="#/employ/show/{{employ.id}}">{{employ.lastName}} {{employ.name.substring(0,1)+'.'}} </a>
             </li>
         </ul>
+            <a href="#/employ/add">add</a>
         </div>
+
+        <div class="col-lg-10 col-md-10">
+            <div ng-view></div>
+        </div>
+
+
 
 
 

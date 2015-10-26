@@ -10,19 +10,19 @@ var phonecatApp = angular.module('employApp', [
 
 
 
-/*
+
 phonecatApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
-            when('/employs', {
-                templateUrl: 'partials/phone-list.html',
-                controller: 'PhoneListCtrl'
+            when('/employ/show/:employId', {
+                templateUrl: 'ROOT/partials/employInfo',
+                controller: 'employDetailCtrl'
             }).
-            when('/phones/:phoneId', {
-                templateUrl: 'partials/phone-detail.html',
-                controller: 'PhoneDetailCtrl'
+            when('/employ/add',{
+                templateUrl:'ROOT/partials/employAdd'
+
             }).
             otherwise({
-                redirectTo: '/phones'
+                redirectTo: 'employs'
             });
-    }])*/
+    }])

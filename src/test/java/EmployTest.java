@@ -26,8 +26,8 @@ public class EmployTest {
         Session session = factory.openSession();
         session.beginTransaction();
         Salary salary =new Salary();
-        salary.setDayEarn(new Date());
-        salary.setEarn(444);
+        salary.setDay(new Date());
+        salary.setEarnMoney(444);
         Employ employ = new Employ();
         employ.setName("Test555");
         employ.setLastName("dorda");

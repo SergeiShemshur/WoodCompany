@@ -12,21 +12,21 @@ public class Salary {
     long id;
 
     @Column
-    int earn;
+    int earnMoney;
 
     @Column
-    Date dayEarn;
+    Date day;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(nullable = false)
     Employ employ;
 
-    public int getEarn() {
-        return earn;
+    public int getEarnMoney() {
+        return earnMoney;
     }
 
-    public void setEarn(int earn) {
-        this.earn = earn;
+    public void setEarnMoney(int earnMoney) {
+        this.earnMoney = earnMoney;
     }
 
     public long getId() {
@@ -37,12 +37,12 @@ public class Salary {
         this.id = id;
     }
 
-    public Date getDayEarn() {
-        return dayEarn;
+    public Date getDay() {
+        return day;
     }
 
-    public void setDayEarn(Date dayEarn) {
-        this.dayEarn = dayEarn;
+    public void setDay(Date day) {
+        this.day = day;
     }
 
     public Employ getEmploy() {

@@ -1,4 +1,4 @@
-var phonecatControllers = angular.module('employControllers', []);
+var employControllers = angular.module('employControllers', []);
 
 /*
  phonecatControllers.controller('PhoneListCtrl', ['$scope', '$http',
@@ -18,9 +18,17 @@ var phonecatControllers = angular.module('employControllers', []);
  }]);
  */
 
-phonecatControllers.controller('employList', ['$scope', '$http', function ($scope, $http) {
+employControllers.controller('employList', ['$scope', '$http', function ($scope, $http) {
     $http.get('ROOT/employs').success(function (data) {
         $scope.employs = data;
     });
 
 }]);
+
+
+employControllers.controller('employDetailCtrl', ['$scope', '$routeParams', '$http',
+ function($scope, $routeParams, $http) {
+  $http.get('ROOT/employ/show/' + $routeParams.employId).success(function(data) {
+   $scope.employ = data;
+  });
+ }])
