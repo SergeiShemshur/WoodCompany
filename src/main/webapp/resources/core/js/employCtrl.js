@@ -19,16 +19,17 @@ var employControllers = angular.module('employControllers', []);
  */
 
 employControllers.controller('employList', ['$scope', '$http', function ($scope, $http) {
-    $http.get('ROOT/employs').success(function (data) {
+    $http.get('employList').success(function (data) {
         $scope.employs = data;
     });
 
 }]);
 
 
-employControllers.controller('employDetailCtrl', ['$scope', '$routeParams', '$http',
+employControllers.controller('employInfoCtrl', ['$scope', '$routeParams', '$http',
  function($scope, $routeParams, $http) {
-  $http.get('ROOT/employ/show/' + $routeParams.employId).success(function(data) {
+  $http.get('employ/detail/' + $routeParams.employId).success(function(data) {
    $scope.employ = data;
   });
  }])
+

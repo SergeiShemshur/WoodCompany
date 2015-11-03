@@ -13,4 +13,5 @@ public interface EmployDao {
     public Employ findEmployById(long id);
     public List<Employ> getAllEmploy();
 
+
 }

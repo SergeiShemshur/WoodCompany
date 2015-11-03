@@ -7,16 +7,13 @@ import com.shs.persistence.model.Salary;
 import com.shs.services.EmployJsonService;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
 
-/*
-*
-*
-*/
 @Controller
 public class EmployController {
 
@@ -31,24 +28,38 @@ public class EmployController {
         return "employ";
     }
 
-    @RequestMapping(value = "/employs", method = RequestMethod.GET)
-    public @ResponseBody String getEmployList() {
+    @RequestMapping(value = "/employList", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    String getEmployList() {
         return employJsonService.getAllEmployJson();
     }
 
-    @RequestMapping(value = "/partials/employAdd",method = RequestMethod.GET)
-    public String addEmploy(){
-        return "partials/employAdd";
+    @RequestMapping(value = "/partials/{template}")
+    public String getEmployInfo(@PathVariable("template") String template) {
+        return "partials/" + template;
     }
 
-    @RequestMapping(value ="/partials/employInfo")
-    public String getEmployInfo(){
-        return "partials/employInfo";
-    }
-
-    @RequestMapping("employ/show/{id}")
-    public @ResponseBody String getEmployById(@PathVariable("id")long id){
+    @RequestMapping(value = "employ/detail/{id}", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    String getEmployById(@PathVariable("id") long id) {
         return employJsonService.getEmployByIdJson(id);
     }
+
+
+    @RequestMapping(value = "/employAdd", method = RequestMethod.POST)
+    public String addEmploy(@RequestParam(name = "name") String name,
+                     @RequestParam(name = "lastName") String lastName,
+                     @RequestParam(name = "hireDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date hireDate) {
+        Employ newEmploy = new Employ();
+        newEmploy.setName(name);
+        newEmploy.setLastName(lastName);
+        newEmploy.setHireDate(hireDate);
+        newEmploy.setIsWork(true);
+        employRepository.addEmploy(newEmploy);
+        return "redirect:/";
+    }
+
 
 }

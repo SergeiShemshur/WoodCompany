@@ -16,18 +16,20 @@ public class Employ {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true)
     private long id;
-
     @Column
     private String name;
-
     @Column
     private String lastName;
-
     @Column
     private boolean working;
-
     @Column
     private Date hireDate;
+    @Column
+    private Date firedDate;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "employ")
+    @JsonIgnore
+    private Set<Salary> salaries = new HashSet<Salary>();
 
     public Set<Salary> getSalaries() {
         return salaries;
@@ -36,14 +38,6 @@ public class Employ {
     public void setSalaries(Set<Salary> salaries) {
         this.salaries = salaries;
     }
-
-    @Column
-    private Date  firedDate;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "employ")
-    @JsonIgnore
-    private Set<Salary> salaries = new HashSet<Salary>();
-
 
     public boolean isWorking() {
         return working;

@@ -35,11 +35,17 @@ public class EmployJsonService {
     }
 
 
-    public String getEmployByIdJson(long id){
+
+
+
+
+
+
+    public String getEmployByIdJson(long id) {
         Employ employ = employDao.findEmployById(id);
-        if(employ ==null){
+        if (employ == null) {
             return null;
-        }   else  {
+        } else {
             ObjectMapper mapper = new ObjectMapper();
             String empoyJson = "";
 
@@ -48,17 +54,11 @@ public class EmployJsonService {
             } catch (JsonProcessingException e) {
                 e.printStackTrace();
             }
-                return empoyJson;
+            return empoyJson;
         }
 
 
-
-
-
-
     }
-
-
 
 
 }
