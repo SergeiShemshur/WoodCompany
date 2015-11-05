@@ -18,7 +18,7 @@ public class Salary {
     Date day;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = true)
     Employ employ;
 
     public int getEarnMoney() {

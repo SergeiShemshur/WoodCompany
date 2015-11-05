@@ -33,8 +33,11 @@ public class EmployRepositoryImpl implements EmployDao {
         Employ employ = null;
         Session session = sessionFactory.openSession();
         Transaction tr = session.beginTransaction();
+
         employ = findEmployById(session, id);
+
         if (employ != null) {
+            employ.getSalaries().size();
             session.delete(employ);
         }
         tr.commit();

@@ -13,15 +13,15 @@ import org.testng.annotations.Test;
 import java.util.Date;
 
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = SpringConfig.class)
+/*@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = SpringConfig.class)*/
 public class EmployTest {
 
     SessionFactory factory;
 
-    @Transactional
+
     @Test
-    public void init (){
+    public void inite (){
         factory = HibernateUtil.getSessionFactory();
         Session session = factory.openSession();
         session.beginTransaction();
@@ -30,7 +30,7 @@ public class EmployTest {
         salary.setEarnMoney(444);
         Employ employ = new Employ();
         employ.setName("Test555");
-        employ.setLastName("dorda");
+        employ.setLastName("dor");
         employ.setFiredDate(new Date());
         employ.setHireDate(new Date());
         employ.setIsWork(true);

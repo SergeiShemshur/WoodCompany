@@ -15,6 +15,7 @@ import java.util.Date;
 
 
 @Controller
+
 public class EmployController {
 
 
@@ -29,9 +30,7 @@ public class EmployController {
     }
 
     @RequestMapping(value = "/employList", method = RequestMethod.GET)
-    public
-    @ResponseBody
-    String getEmployList() {
+    public @ResponseBody String getEmployList() {
         return employJsonService.getAllEmployJson();
     }
 
@@ -60,6 +59,15 @@ public class EmployController {
         employRepository.addEmploy(newEmploy);
         return "redirect:/";
     }
+
+    @RequestMapping(value = "/removeEmploy", method = RequestMethod.POST)
+        public String deleteEmploy(@RequestParam(name = "id") long id){
+                employRepository.removeEmployById(id);
+        return "redirect:/";
+    }
+
+
+
 
 
 }

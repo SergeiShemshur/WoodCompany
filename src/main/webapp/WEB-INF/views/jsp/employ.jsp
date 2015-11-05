@@ -81,10 +81,11 @@
 </nav>
 
 
-<div class="container">
-    <div class="row">
-        <div  class="col-lg-2 col-md-2 " ng-controller="employList" >
-            <a href="#/employ/all">ALL</a>
+<div class="container-fluid">
+    <div class="row-fluid">
+
+        <div  class="col-lg-2 col-xs-4 col-md-2 leftMenu  "  ng-controller="employList" >
+            <a class="text-center" href="#/employ/all">ALL</a>
         <ul class="employs">
             <li ng-repeat="employ in employs">
              <a href="#/employ/show/{{employ.id}}">{{employ.lastName}} {{employ.name.substring(0,1)+'.'}} </a>
@@ -93,24 +94,12 @@
             <a href="#/employ/add">add</a>
         </div>
 
-        <div class="col-lg-10 col-md-10">
+
+
+        <div class="col-lg-10 col-xs-8 col-md-10">
             <div ng-view></div>
         </div>
 
-
-
-
-
-
-
-<%--
-
-
-
-
-        <div class="col-lg-10 col-md-9" ng-controller="employInfo" style="border: thin">
-
-        </div>--%>
     </div>
 </div>
 

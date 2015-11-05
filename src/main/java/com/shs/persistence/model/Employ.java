@@ -1,8 +1,12 @@
 package com.shs.persistence.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -28,6 +32,7 @@ public class Employ {
     private Date firedDate;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "employ")
+    @Cascade(value = CascadeType.ALL)
     @JsonIgnore
     private Set<Salary> salaries = new HashSet<Salary>();
 
