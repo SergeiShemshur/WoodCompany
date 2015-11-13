@@ -26,4 +26,4 @@ phonecatApp.config(['$routeProvider',
             otherwise({
                 redirectTo: 'employs'
             });
-    }])
+    }]);

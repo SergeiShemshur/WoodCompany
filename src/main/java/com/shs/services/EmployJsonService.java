@@ -23,42 +23,27 @@ public class EmployJsonService {
         if (employs == null) {
             return null;
         } else {
-            ObjectMapper mapper = new ObjectMapper();
-            String employsJson = "";
-            try {
-                employsJson = mapper.writeValueAsString(employs);
-            } catch (JsonProcessingException e) {
-                e.printStackTrace();
-            }
-            return employsJson;
+            return createJsonFromEmploy(employs);
         }
     }
-
-
-
-
-
-
-
 
     public String getEmployByIdJson(long id) {
         Employ employ = employDao.findEmployById(id);
         if (employ == null) {
             return null;
         } else {
-            ObjectMapper mapper = new ObjectMapper();
-            String empoyJson = "";
-
-            try {
-                empoyJson = mapper.writeValueAsString(employ);
-            } catch (JsonProcessingException e) {
-                e.printStackTrace();
-            }
-            return empoyJson;
+            return createJsonFromEmploy(employ);
         }
-
-
     }
 
-
+    private String createJsonFromEmploy(Object employ) {
+        ObjectMapper mapper = new ObjectMapper();
+        String empoyJson = "";
+        try {
+            empoyJson = mapper.writeValueAsString(employ);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return empoyJson;
+    }
 }

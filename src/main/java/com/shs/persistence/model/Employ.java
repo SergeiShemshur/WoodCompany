@@ -7,9 +7,7 @@ import org.hibernate.annotations.CascadeType;
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 
 @Entity
@@ -24,6 +22,10 @@ public class Employ {
     private String name;
     @Column
     private String lastName;
+    @Column
+    String email;
+    @Column
+    String gender;
     @Column
     private boolean working;
     @Column
@@ -88,7 +90,27 @@ public class Employ {
         return lastName;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+    public void setWorking(boolean working) {
+        this.working = working;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

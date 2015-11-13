@@ -1,6 +1,6 @@
 package com.shs.controllers;
 
-import com.shs.dao.EmployRepositoryImpl;
+import com.shs.dao.EmployDaoImpl;
 import com.shs.persistence.model.Employ;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
-/**
- * Created by sergei on 10/9/15.
- */
+
 @Controller
 public class SimpleController {
 
@@ -23,8 +21,6 @@ public class SimpleController {
 
     @RequestMapping(value = "/a", method = RequestMethod.GET)
     public String printWelcom() {
-        EmployRepositoryImpl employService = new EmployRepositoryImpl();
-        int i = 1;
         return "index";
     }
 
@@ -38,8 +34,8 @@ public class SimpleController {
     public String test(Model model) {
         Employ employ = new Employ();
 
-        employ.setLastName("ogi");
         employ.setName("coco");
+        employ.setLastName("ogi");
         employ.setId(55);
         employ.setIsWork(true);
 

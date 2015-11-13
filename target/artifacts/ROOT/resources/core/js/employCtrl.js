@@ -31,5 +31,5 @@ employControllers.controller('employInfoCtrl', ['$scope', '$routeParams', '$http
   $http.get('employ/detail/' + $routeParams.employId).success(function(data) {
    $scope.employ = data;
   });
- }])
+ }]);
 

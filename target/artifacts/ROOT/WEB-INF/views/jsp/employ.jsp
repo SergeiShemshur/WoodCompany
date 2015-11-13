@@ -10,7 +10,7 @@
 
     <spring:url value="/resources/core/css/hello.css" var="coreCss" />
     <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
-    <spring:url value="/resources/core/js/angular.min.js" var="angular"/>
+    <spring:url value="/resources/core/js/angular.min1.js" var="angular"/>
     <spring:url value="/resources/core/js/angular-route.min.js" var="angularRoute"/>
     <spring:url value="/resources/core/js/employApp.js" var="app"/>
     <spring:url value="/resources/core/js/employCtrl.js" var="ctrl"/>
@@ -84,7 +84,7 @@
 <div class="container-fluid">
     <div class="row-fluid">
 
-        <div  class="col-lg-2 col-xs-4 col-md-2 leftMenu  "  ng-controller="employList" >
+        <div  class="col-lg-2 col-xs-4 col-md-2 leftMenu text-center "  ng-controller="employList" >
             <a class="text-center" href="#/employ/all">ALL</a>
         <ul class="employs">
             <li ng-repeat="employ in employs">

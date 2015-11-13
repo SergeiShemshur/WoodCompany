@@ -7,7 +7,7 @@
 
   <spring:url value="/resources/core/css/hello.css" var="coreCss" />
   <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
-  <spring:url value="/resources/core/js/angular.min.js" var="angular"/>
+  <spring:url value="/resources/core/js/angular.min1.js" var="angular"/>
 
   <link href="${bootstrapCss}" rel="stylesheet" />
   <link href="${coreCss}" rel="stylesheet" />
@@ -19,7 +19,7 @@
 
 <div ng-controller="ExampleController">
   <label>Enter name: <input type="text" ng-model="name"></label><br>
-  Hello <span ng-bind="name"></span>!
+  Hello <span ng-bind="name" ></span>!
  <h1>{{name}}</h1>
 </div>
 <script>

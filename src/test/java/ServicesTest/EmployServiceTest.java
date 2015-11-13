@@ -1,7 +1,6 @@
 package ServicesTest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.shs.dao.EmployRepositoryImpl;
 import com.shs.persistence.model.Employ;
 import org.junit.Test;
 

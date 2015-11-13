@@ -11,10 +11,23 @@ import org.apache.logging.log4j.LogManager;
  */
 public class TestLog {
 
-    private static final org.apache.logging.log4j.Logger log = LogManager.getLogger(SimpleController.class);
+    //private static final org.apache.logging.log4j.Logger log = LogManager.getLogger(SimpleController.class);
 
     public static void main(String[] args) throws IOException {
-        System.out.println("====> Please insert a number from 0 to 100 : \n====> ");
+
+        String a = "text";
+        String b = "text";
+
+        if(a == b){
+            System.out.println("equals");
+        }
+
+        
+
+
+
+
+    /*    System.out.println("====> Please insert a number from 0 to 100 : \n====> ");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int number = Integer.valueOf(br.readLine());
         log.info("You inserted the number:"+number);
@@ -23,5 +36,6 @@ public class TestLog {
             throw new IOException();
         } else {
             log.debug("Number is smaller than 100, so it is correct!");
-        }
-    }}
+        }*/
+    }
+}

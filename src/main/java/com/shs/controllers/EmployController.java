@@ -1,11 +1,9 @@
 package com.shs.controllers;
 
 
-import com.shs.dao.EmployRepositoryImpl;
+import com.shs.dao.EmployDaoImpl;
 import com.shs.persistence.model.Employ;
-import com.shs.persistence.model.Salary;
 import com.shs.services.EmployJsonService;
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -22,7 +20,7 @@ public class EmployController {
     @Autowired
     EmployJsonService employJsonService;
     @Autowired
-    EmployRepositoryImpl employRepository;
+    EmployDaoImpl employRepository;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getEmployAppPage() {
@@ -30,7 +28,9 @@ public class EmployController {
     }
 
     @RequestMapping(value = "/employList", method = RequestMethod.GET)
-    public @ResponseBody String getEmployList() {
+    public
+    @ResponseBody
+    String getEmployList() {
         return employJsonService.getAllEmployJson();
     }
 
@@ -49,25 +49,33 @@ public class EmployController {
 
     @RequestMapping(value = "/employAdd", method = RequestMethod.POST)
     public String addEmploy(@RequestParam(name = "name") String name,
-                     @RequestParam(name = "lastName") String lastName,
-                     @RequestParam(name = "hireDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date hireDate) {
+                            @RequestParam(name = "lastName") String lastName,
+                            @RequestParam(name = "gender") String gender,
+                            @RequestParam(name = "email") String email,
+                            @RequestParam(name = "hireDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date hireDate,
+                            @RequestParam(name = "working",required = false) String working
+    ) {
+
+
+
         Employ newEmploy = new Employ();
+
         newEmploy.setName(name);
         newEmploy.setLastName(lastName);
+        newEmploy.setGender(gender);
+        newEmploy.setEmail(email);
         newEmploy.setHireDate(hireDate);
-        newEmploy.setIsWork(true);
+        newEmploy.setIsWork(new Boolean(working));
         employRepository.addEmploy(newEmploy);
-        return "redirect:/";
+
+        return "redirect:/a";
     }
 
     @RequestMapping(value = "/removeEmploy", method = RequestMethod.POST)
-        public String deleteEmploy(@RequestParam(name = "id") long id){
-                employRepository.removeEmployById(id);
-        return "redirect:/";
+    public String deleteEmploy(@RequestParam(name = "id") long id) {
+        employRepository.removeEmployById(id);
+        return "redirect:/a";
     }
-
-
-
 
 
 }
